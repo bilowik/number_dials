@@ -18,15 +18,34 @@
 				height: 100vh;
 				margin: 0px;
 			}
+			canvas {
+			}
 		</style>
 	</head>
 	<body>
+		<script type="module">
+			import init from './main.js';
+
+			function start() {
+				let canvas = document.getElementById("main-canvas");
+				if(canvas != null) {
+					canvas.style.display = "flex";
+				}
+
+				let startButton = document.getElementById("start-button");
+				if(startButton != null) {
+					startButton.style.display = "none";
+				}
+
+				init()
+			}
+			window.start = start;
+		</script>
 		<canvas id="main-canvas">
 		</canvas>
+		<button id="start-button" style="width: 400px; height: 100px" onclick="start()">
+			Begin game
+		</button>
 	</body>
-	<script type="module">
-		import init from './main.js'
-		init()
-	</script>
 </html>
 
